@@ -1,0 +1,296 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container .btn {
+    position: absolute;
+    left:50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container .btn:hover {
+    background-color: red;
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("1.jpeg");
+
+    height:350%;
+    width: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<body>
+<center>
+
+{% if predicted %}
+    <h2>After analzing  your information <br>detected cancer status is </h2><h1 style="color:green;">"{{ predicted[0] }}"</h1>
+{%  else %}
+    {% endif %}
+<div class="bg-img">
+<h2>GET STARTED</h2>
+<form action="/cancerPredict" method="POST">
+  1.Enter your age<br>
+  <input type="number" name="age" value="age" required="">
+  <br><br><br>
+  2.Enter your gender<br>
+  <select name="gender">
+	<option value="1">Male</option>
+	<option value="2">Female</option>
+  </select>
+  <br><br><br>
+  3.Enter the level of air pollution in your surroundings<br>
+  <select name="values">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  4.Enter the amount of your alcohol consumption<br>
+ <select name="values1">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+ </select>
+<br><br><br>
+  5.Enter the level of dust allergy you suffer from<br>
+ <select name="values2">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  6.Enter the level of occupational hazards you face<br>
+ <select name="values3">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  7.Rate the amount of genetic risk<br>
+ <select name="values4">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  8.Enter the level of chronic lung disease you face<br>
+ <select name="values5">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  9.Rate your diet<br>
+ <select name="values6">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  10.Enter the level of obesity<br>
+ <select name="values7">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  11.Enter the level of smoking<br>
+ <select name="values8">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  12.Enter the level of passive smoking<br>
+ <select name="values9">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  13.How often do you have the problem of chest pain<br>
+ <select name="values10">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  14.How often do you have the problem of coughing blood<br>
+ <select name="values11">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  15.Rate the level of fatigueness<br>
+ <select name="values12">
+   <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  16.Rate the weight loss in your body<br>
+ <select name="values13">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  17.How often do you experience shortness of breath<br>
+ <select name="values14">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  18.How often have u noticed wheezing<br>
+ <select name="values15">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  19.Enter the level of difficulty you feel during swallowing food<br>
+ <select name="values16">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  20.How often do you notice clubbing of finger nails<br>
+ <select name="values17">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  21.How frequently do you have cold<br>
+ <select name="values18">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  22.How frequently do you have dry cough<br>
+ <select name="values19">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  23.Rate the level of snorings<br>
+ <select name="values20">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>
+<br><br><br>
+  <br><br>
+<div class="container">
+<button class="button" type="submit">Submit</button></div>
+</form>
+</div>
+</center>
+</body>
+</html>
+
+
