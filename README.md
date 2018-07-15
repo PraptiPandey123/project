@@ -1,5 +1,5 @@
 # Project on predicting the chances of cancer(i.e lung cancer)
- To test the code follow the following procedures.
+ To test the code follow the following procedures:-
  
  1.First make a project folder and place the mainRoute.py, dataset and the index.html file inside the folder.
  
@@ -7,7 +7,7 @@
  
  3.Now run the mainRoute.py  file in the command line/terminal using python3.
  
- 4.This will provide you with a link like " http://127.0.0.1:5000/ ".
+ 4.This will provide you with a link like " http://127.0.0.1:5000/ " in your case it might be different.
  
  5.Open the link in the browser. 
  
