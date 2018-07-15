@@ -1,9 +1,9 @@
 # Project on predicting the chances of cancer(i.e lung cancer)
  To test the code follow the following procedures:-
  
- 1.First make a project folder and place the mainRoute.py, dataset and the index.html file inside the folder.
+ 1.First make a folder named project and place the mainRoute.py, cancer_dataset and the index.html file inside the folder.
  
- 2.Then make a dir named templates and put the index.html file inside it.
+ 2.Then make a directory named templates inside the project folder and put the index.html file inside it.
  
  3.Now run the mainRoute.py  file in the command line/terminal using python3.
  
