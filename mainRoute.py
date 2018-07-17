@@ -8,8 +8,22 @@ app=Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
-
+	return render_template('homepage.html')
+@app.route('/test')
+def test():
+	return render_template('test.html')
+@app.route('/contact')
+def contact():
+	return render_template('contact.html')
+@app.route('/aboutus')
+def aboutus():
+	return render_template('aboutus.html')
+@app.route('/homepage')
+def homepage():
+	return render_template('homepage.html')
+@app.route('/lung')
+def lung():
+	return render_template('lung.html')	
 
 
 @app.route('/cancerPredict', methods=['POST'])
@@ -75,7 +89,7 @@ def cancerPredict():
     #print(train_target)
 
     #print(age,gender,air,alch,dust,occp,gene,ldesc,diet,obsty,smoke,psmoke,chest,cough,fatig,weight,breath,wheez,swallow,nails,cold,dcough,snore)
-    return render_template("index.html",predicted=predicted,predicted1=predicted1,predicted2=predicted2)
+    return render_template("lung.html",predicted=predicted,predicted1=predicted1,predicted2=predicted2)
 
 
 if __name__ == '__main__':
