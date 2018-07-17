@@ -1,2 +1,6 @@
+python3 
 pip3 install flask
 pip3 install pandas
+pip3 install scikit-learn
+lung cancer dataset in .xlsx format
+
