@@ -15,4 +15,6 @@
  
  7.This will open the homepage.html file.
  
+ 8.Now navigate though the webpage to take_test-->lung_cancer page.
+ 
  8.Enter the required data and enjoy!!!!!!!!.
