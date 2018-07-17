@@ -3,7 +3,7 @@ import pandas as pa
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
-
+#connectiviy to html file using flask
 app=Flask(__name__)
 
 @app.route('/')
@@ -51,28 +51,31 @@ def cancerPredict():
     cold=float(request.form['values18'])
     dcough=float(request.form['values19'])
     snore=float(request.form['values20'])
+#reading datasets
     data=pa.read_excel("cancer_patient_data_sets .xlsx").values
     #print(data)
     #print(data[0,1:24])
+#splitting dataset
     train_data=data[0:998,1:24]
     train_target=data[0:998,24]
     '''print(train_target)
     test_data=data[999:,1:24]
     test_target=data[999:,24]
     print(test_target)'''
+#training using dataset
     clf=DecisionTreeClassifier()
     trained=clf.fit(train_data,train_target)
     clf1=SVC()
     trained1=clf1.fit(train_data,train_target)
     clf2=KNeighborsClassifier(n_neighbors=3)
     trained2=clf2.fit(train_data,train_target)
-
+#taking input and testing 
     test=[age,gender,air,alch,dust,occp,gene,ldesc,diet,obsty,smoke,psmoke,chest,cough,fatig,weight,breath,wheez,swallow,nails,cold,dcough,snore]
     #test=[34,1,2,3,4,5,6,7,6,5,4,3,2,1,2,3,4,5,2,3,5,2,3]
     predicted=trained.predict([test])
     predicted1=trained1.predict([test])
     predicted2=trained2.predict([test])
-
+#printing output
     print(predicted)
     print(predicted1)
     print(predicted2)
@@ -86,9 +89,7 @@ def cancerPredict():
     acc2=accuracy_score(predicted2,test_target)
     print(acc)
     '''
-    #print(train_target)
-
-    #print(age,gender,air,alch,dust,occp,gene,ldesc,diet,obsty,smoke,psmoke,chest,cough,fatig,weight,breath,wheez,swallow,nails,cold,dcough,snore)
+#sending output to html 
     return render_template("lung.html",predicted=predicted,predicted1=predicted1,predicted2=predicted2)
 
 
